@@ -1,164 +1,1109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amelia Asset Recovery</title>
-<style>
-  body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; color:#333; background:#f9f9f9;}
-  header { background:#0077cc; color:white; padding:40px 20px; text-align:center;}
-  header h1 { margin:0; font-size:2.5em;}
-  header p { margin-top:10px; font-size:1.2em;}
-  header a { display:inline-block; margin-top:20px; background:#fff; color:#0077cc; padding:12px 25px; text-decoration:none; font-weight:bold; border-radius:5px;}
-  section { padding:60px 20px; max-width:1100px; margin:0 auto;}
-  h2 { color:#0077cc; margin-bottom:20px;}
-  .services, .how-it-works, .faq { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;}
-  .service, .step, .faq-item { background:white; padding:20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-  form input, form textarea, form select { width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:5px;}
-  form input[type="submit"] { background:#0077cc; color:white; border:none; cursor:pointer; font-weight:bold;}
-  form input[type="submit"]:hover { background:#005fa3;}
-  footer { background:#333; color:white; text-align:center; padding:20px;}
-  .stats { display:flex; justify-content:space-around; margin-top:30px; flex-wrap:wrap;}
-  .stat { background:#fff; padding:20px; border-radius:8px; margin:10px; flex:1 1 150px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amelia Asset Recovery | NAID Certified IT Asset Disposition + Refurb & Reuse</title>
+  <meta name="description" content="Amelia Asset Recovery (Amelia Tech & Auto LLC) provides free pickup anywhere in Ohio, secure data destruction, NAID Certified ITAD services, device tracking, refurbishment, and responsible recycling." />
+
+  <style>
+    :root{
+      /* Default: Dark + Blue */
+      --bg: #070a12;
+      --bg2:#0b1020;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.04);
+      --border: rgba(255,255,255,.12);
+      --text: #e8edf7;
+      --muted: rgba(232,237,247,.72);
+      --shadow: 0 18px 55px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1160px;
+
+      --accent: #3b82f6;     /* blue */
+      --accent2:#22c55e;     /* green */
+      --warn: #f59e0b;
+      --danger:#ef4444;
+    }
+
+    /* Light theme */
+    [data-theme="light"]{
+      --bg:#f7f9ff;
+      --bg2:#eef2ff;
+      --panel: rgba(255,255,255,.88);
+      --panel2: rgba(255,255,255,.72);
+      --border: rgba(15,23,42,.14);
+      --text:#0b1220;
+      --muted: rgba(11,18,32,.68);
+      --shadow: 0 18px 55px rgba(15,23,42,.12);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1100px 500px at 10% 0%, color-mix(in srgb, var(--accent) 25%, transparent), transparent 60%),
+        radial-gradient(900px 450px at 90% 10%, color-mix(in srgb, var(--accent2) 20%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px;}
+    .sr{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+
+    /* Progress bar */
+    #progress{
+      position:fixed; top:0; left:0; height:3px; width:0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      z-index:9999;
+    }
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:1000;
+      backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar .row{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:12px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900; letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .dot{
+      width:12px; height:12px; border-radius:50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 18%, transparent);
+    }
+    .badge{
+      font-size:.78rem;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background: var(--panel2);
+      color: var(--muted);
+      font-weight:800;
+    }
+    nav{
+      display:flex; align-items:center; gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-weight:800;
+      color: var(--muted);
+      font-size:.95rem;
+    }
+    nav a{
+      padding:8px 10px;
+      border-radius:12px;
+    }
+    nav a:hover{
+      color:var(--text);
+      background: var(--panel2);
+    }
+    .controls{display:flex; gap:8px; align-items:center;}
+    .iconbtn{
+      border:1px solid var(--border);
+      background: var(--panel2);
+      color: var(--text);
+      border-radius:12px;
+      padding:10px 10px;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease;
+      font-weight:900;
+    }
+    .iconbtn:hover{transform: translateY(-1px); background: var(--panel);}
+    .menu{
+      display:none;
+    }
+    @media (max-width: 960px){
+      nav{display:none;}
+      .menu{display:inline-flex;}
+    }
+
+    /* Mobile drawer */
+    .drawer{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.55);
+      display:none;
+      z-index:1200;
+    }
+    .drawer.open{display:block;}
+    .drawer .panel{
+      position:absolute; top:0; right:0; height:100%; width:min(360px, 88vw);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      border-left:1px solid var(--border);
+      padding:14px;
+      box-shadow: var(--shadow);
+    }
+    .drawer a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: var(--panel2);
+      margin-bottom:10px;
+      font-weight:900;
+      color:var(--text);
+    }
+    .drawer a:hover{background: var(--panel);}
+
+    /* Hero */
+    header.hero{
+      padding: 56px 0 20px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 960px){ .hero-grid{grid-template-columns:1fr;} }
+
+    .card{
+      background: var(--panel);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .card.soft{background: var(--panel2);}
+    .glow{
+      position:absolute; inset:-80px;
+      background:
+        radial-gradient(400px 280px at 20% 10%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 60%),
+        radial-gradient(420px 280px at 85% 25%, color-mix(in srgb, var(--accent2) 18%, transparent), transparent 60%);
+      filter: blur(18px);
+      opacity:.9;
+      pointer-events:none;
+    }
+
+    .kicker{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+      color: var(--muted);
+      font-weight:900;
+      letter-spacing:.2px;
+      font-size:.9rem;
+      margin-bottom:12px;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height:1.12;
+      letter-spacing:.1px;
+    }
+    .lead{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 70ch;
+    }
+
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background: var(--panel2);
+      font-weight:950;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: var(--panel);}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 75%, #000));
+      border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    }
+    .btn.primary:hover{background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 88%, #fff), var(--accent));}
+    .btn.green{
+      background: linear-gradient(135deg, var(--accent2), color-mix(in srgb, var(--accent2) 70%, #000));
+      border-color: color-mix(in srgb, var(--accent2) 40%, transparent);
+    }
+    .btn.warn{
+      background: linear-gradient(135deg, var(--warn), color-mix(in srgb, var(--warn) 70%, #000));
+      border-color: color-mix(in srgb, var(--warn) 45%, transparent);
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top: 16px;
+    }
+    @media (max-width: 680px){ .stats{grid-template-columns: 1fr;} }
+    .stat{
+      border:1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      background: color-mix(in srgb, var(--panel2) 70%, transparent);
+    }
+    .stat strong{display:block; font-size:1.05rem; letter-spacing:.1px}
+    .stat span{display:block; margin-top:2px; color:var(--muted); font-weight:800; font-size:.9rem}
+    .big{
+      font-size: 1.35rem;
+      font-weight: 1000;
+    }
+
+    /* Sections */
+    section{padding: 52px 0;}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
+      margin-bottom: 16px;
+    }
+    h2{
+      margin:0;
+      font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+      letter-spacing:.2px;
+    }
+    .sub{margin:0; color:var(--muted); max-width: 78ch; font-weight:700;}
+
+    /* Grids */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 960px){ .grid{grid-template-columns:1fr;} }
+
+    .feature{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: var(--panel2);
+      position:relative;
+      overflow:hidden;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .feature:hover{
+      transform: translateY(-2px);
+      background: var(--panel);
+      border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+    }
+    .feature h3{margin:0 0 8px; font-size:1.12rem; letter-spacing:.1px}
+    .feature p{margin:0; color:var(--muted); font-weight:650}
+    .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;}
+    .tag{
+      border:1px solid var(--border);
+      background: color-mix(in srgb, var(--panel2) 70%, transparent);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size:.82rem;
+      color: var(--muted);
+      font-weight:900;
+    }
+    .tag.hot{border-color: color-mix(in srgb, var(--accent) 35%, var(--border)); color: color-mix(in srgb, var(--accent) 80%, var(--text));}
+    .tag.green{border-color: color-mix(in srgb, var(--accent2) 35%, var(--border)); color: color-mix(in srgb, var(--accent2) 80%, var(--text));}
+
+    /* Two column layout */
+    .split{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 12px;
+      align-items:stretch;
+    }
+    @media (max-width: 960px){ .split{grid-template-columns:1fr;} }
+
+    /* Steps */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      counter-reset: step;
+    }
+    @media (max-width: 960px){ .steps{grid-template-columns:1fr;} }
+    .step{
+      border:1px solid var(--border);
+      background: var(--panel2);
+      border-radius: var(--radius);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .step:before{
+      counter-increment: step;
+      content: counter(step);
+      position:absolute;
+      top:14px; right:14px;
+      width: 38px; height: 38px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      font-weight:1000;
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
+      border:1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+    }
+    .step h3{margin:0 0 8px; font-size:1.1rem}
+    .step p{margin:0; color:var(--muted); font-weight:650}
+
+    /* Accept list */
+    .accept{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .chip{
+      border:1px solid var(--border);
+      background: var(--panel2);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-weight:900;
+      color: color-mix(in srgb, var(--text) 90%, var(--muted));
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+    }
+    .chip small{color:var(--muted); font-weight:900; font-size:.8rem}
+
+    /* FAQ */
+    details{
+      border:1px solid var(--border);
+      background: var(--panel2);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+    details + details{margin-top:10px;}
+    summary{
+      cursor:pointer;
+      font-weight:1000;
+      letter-spacing:.1px;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    summary::-webkit-details-marker{display:none;}
+    details p{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-weight:650;
+    }
+    .chev{opacity:.8}
+    details[open] .chev{transform: rotate(180deg);}
+
+    /* Gallery cards */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 960px){ .gallery{grid-template-columns:1fr;} }
+    .photo{
+      border:1px solid var(--border);
+      background: var(--panel2);
+      border-radius: var(--radius);
+      overflow:hidden;
+    }
+    .photo .ph{
+      height: 170px;
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%),
+        linear-gradient(225deg, color-mix(in srgb, var(--accent2) 18%, transparent), transparent 55%),
+        radial-gradient(900px 340px at 50% 0%, rgba(255,255,255,.12), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+    }
+    .photo .cap{padding:14px;}
+    .photo h3{margin:0 0 6px}
+    .photo p{margin:0; color:var(--muted); font-weight:650}
+
+    /* Form */
+    form{display:grid; gap:12px; margin-top: 12px;}
+    label{font-weight:950; color: color-mix(in srgb, var(--text) 90%, transparent); font-size:.92rem;}
+    input, textarea, select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background: var(--panel2);
+      color: var(--text);
+      outline:none;
+      font-weight:750;
+    }
+    textarea{min-height: 120px; resize: vertical;}
+    input::placeholder, textarea::placeholder{color: color-mix(in srgb, var(--muted) 88%, transparent);}
+    .row2{display:grid; grid-template-columns: 1fr 1fr; gap:12px;}
+    @media (max-width: 820px){ .row2{grid-template-columns:1fr;} }
+
+    .note{margin-top:10px; color: var(--muted); font-weight:700; font-size:.92rem}
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--border);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      padding: 28px 0 34px;
+      color: var(--muted);
+    }
+    .footrow{
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    .mini{font-size:.92rem; font-weight:750}
+    .legal{margin-top:10px; font-size:.86rem; color: color-mix(in srgb, var(--muted) 92%, transparent);}
+
+    /* Back to top */
+    #topBtn{
+      position:fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 999;
+      display:none;
+    }
+
+    /* Small shimmer animation */
+    .shimmer{
+      position:absolute;
+      top:-120px; left:-220px;
+      width: 240px; height: 400px;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.10), transparent);
+      transform: rotate(18deg);
+      animation: sweep 6.5s ease-in-out infinite;
+      pointer-events:none;
+      opacity:.6;
+    }
+    @keyframes sweep{
+      0%{transform: translateX(0) rotate(18deg); opacity:.25}
+      35%{opacity:.6}
+      100%{transform: translateX(1300px) rotate(18deg); opacity:.25}
+    }
+  </style>
 </head>
-<body>
 
-<!-- Hero Section -->
-<header>
-  <h1>Amelia Asset Recovery</h1>
-  <p>Amelia Tech & Auto LLC, operating as Amelia Asset Recovery, collects desktops, laptops, and electronics from businesses, schools, and individuals. Every device is logged, securely wiped or destroyed, and responsibly recycled.</p>
-  <a href="#contact">Request a Free Pickup</a>
-  <div class="stats">
-    <div class="stat"><strong>0%</strong><br>E-Waste to Landfill</div>
-    <div class="stat"><strong>Every Device</strong><br>Logged & Tracked</div>
-    <div class="stat"><strong>ITAD Compliant</strong><br>Data Wipe & Security</div>
-  </div>
-</header>
+<body data-theme="dark">
+  <div id="progress"></div>
 
-<!-- About Section -->
-<section id="about">
-  <h2>About Us</h2>
-  <p>At Amelia Tech & Auto LLC, doing business as Amelia Asset Recovery, our mission is to help businesses, schools, and individuals securely dispose of old electronics while protecting sensitive data and supporting environmental sustainability. We follow best practices in IT asset management and ITAD standards to ensure complete accountability for every device collected.</p>
-  <p>Our trained staff handle pickups, logging, data wiping, and recycling. Every device is traceable in our secure inventory system, and documentation can be provided for compliance and auditing purposes. We are committed to maximizing reuse of electronics and minimizing e-waste.</p>
-</section>
-
-<!-- Services Section -->
-<section id="services">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="service">
-      <h3>Free Pickup & Evaluation</h3>
-      <p>We collect desktops, laptops, servers, monitors, printers, and peripherals from businesses, schools, and individuals at no cost. Devices are evaluated on-site or at our facility to determine if they can be reused, refurbished, or recycled.</p>
-    </div>
-    <div class="service">
-      <h3>Logged & Tracked Devices</h3>
-      <p>Every device or storage medium is meticulously logged into our secure inventory system. This ensures full traceability from pickup to final processing, giving clients peace of mind that all equipment is accounted for.</p>
-    </div>
-    <div class="service">
-      <h3>ITAD Data Wipe & Security</h3>
-      <p>We provide certified IT Asset Disposition (ITAD) data wiping services. Hard drives are securely erased using recognized methods (DoD 5220.22-M, NIST 800-88) or physically destroyed if requested. Documentation is available for every device, ensuring sensitive data is completely unrecoverable.</p>
-    </div>
-    <div class="service">
-      <h3>Responsible Recycling</h3>
-      <p>Devices that cannot be reused or refurbished are recycled through certified e-waste partners. We follow a zero-landfill policy to ensure harmful materials are safely disposed of, reducing environmental impact.</p>
-    </div>
-    <div class="service">
-      <h3>Business Documentation</h3>
-      <p>We provide detailed manifests, pickup logs, and data wipe certificates for businesses, schools, and organizations to support IT compliance, auditing, and reporting requirements.</p>
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="panel" role="dialog" aria-label="Menu">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px;">
+        <div class="brand"><span class="dot"></span><span>Menu</span></div>
+        <button class="iconbtn" onclick="toggleDrawer(false)">✕</button>
+      </div>
+      <a href="#services" onclick="toggleDrawer(false)">Services</a>
+      <a href="#mission" onclick="toggleDrawer(false)">Mission</a>
+      <a href="#process" onclick="toggleDrawer(false)">Process</a>
+      <a href="#accept" onclick="toggleDrawer(false)">What We Accept</a>
+      <a href="#naid" onclick="toggleDrawer(false)">NAID Certification</a>
+      <a href="#gallery" onclick="toggleDrawer(false)">Gallery</a>
+      <a href="#faq" onclick="toggleDrawer(false)">FAQ</a>
+      <a href="#contact" onclick="toggleDrawer(false)">Contact</a>
     </div>
   </div>
-</section>
 
-<!-- How It Works Section -->
-<section id="how-it-works">
-  <h2>How It Works</h2>
-  <div class="how-it-works">
-    <div class="step">
-      <h3>1. Request Pickup</h3>
-      <p>Fill out our form or email us with device details and your location.</p>
-    </div>
-    <div class="step">
-      <h3>2. Schedule Collection</h3>
-      <p>We coordinate a convenient pickup date and time that fits your schedule.</p>
-    </div>
-    <div class="step">
-      <h3>3. Device Logging</h3>
-      <p>Each device is logged into our secure inventory system for accountability and traceability.</p>
-    </div>
-    <div class="step">
-      <h3>4. Data Wipe & ITAD</h3>
-      <p>Drives are securely wiped or destroyed according to recognized ITAD standards, ensuring sensitive data is fully protected.</p>
-    </div>
-    <div class="step">
-      <h3>5. Refurbishment / Recycling</h3>
-      <p>Usable devices are refurbished for reuse. Devices that cannot be reused are recycled responsibly through certified partners.</p>
-    </div>
-    <div class="step">
-      <h3>6. Documentation</h3>
-      <p>Businesses and organizations receive pickup manifests and data wipe certificates for compliance and auditing purposes.</p>
-    </div>
-  </div>
-</section>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="brand">
+          <span class="dot"></span>
+          <span>Amelia Asset Recovery</span>
+          <span class="badge">Elyria, OH • Free Pickup Anywhere in Ohio</span>
+        </div>
 
-<!-- FAQ Section -->
-<section id="faq">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-    <div class="faq-item">
-      <h3>Do you accept all devices?</h3>
-      <p>Yes — desktops, laptops, monitors, servers, printers, and peripherals are all accepted.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How fast is the pickup?</h3>
-      <p>Typically within 1–5 business days, depending on volume and location.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Can you handle sensitive company data?</h3>
-      <p>Absolutely. All drives are securely wiped or destroyed using certified ITAD methods, ensuring data is unrecoverable.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Do you provide documentation?</h3>
-      <p>Yes — detailed pickup manifests, device logs, and data wipe certificates are available for businesses and organizations.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Do you charge for pickups?</h3>
-      <p>No — pickups and evaluations are completely free.</p>
+        <nav aria-label="Primary">
+          <a href="#services">Services</a>
+          <a href="#mission">Mission</a>
+          <a href="#process">Process</a>
+          <a href="#accept">What We Accept</a>
+          <a href="#naid">NAID</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="controls">
+          <button class="iconbtn" id="themeBtn" title="Toggle theme">☾</button>
+          <button class="iconbtn" id="accentBtn" title="Switch accent color">🎨</button>
+          <button class="iconbtn menu" title="Open menu" onclick="toggleDrawer(true)">☰</button>
+        </div>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- Contact Section -->
-<section id="contact">
-  <h2>Request a Free Pickup</h2>
-  <form action="mailto:jaevonb19@gmail.com" method="post" enctype="text/plain">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required><br>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="card">
+          <div class="glow"></div>
+          <div class="shimmer"></div>
 
-    <label for="company">Company/School (optional):</label><br>
-    <input type="text" id="company" name="company"><br>
+          <div class="kicker">
+            <span class="badge">A service of Amelia Tech &amp; Auto LLC</span>
+            <span class="badge">NAID Certified • ITAD</span>
+            <span class="badge">Reuse-first mindset</span>
+          </div>
 
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br>
+          <h1>Secure Data Destruction + Refurb &amp; Reuse (Free Pickup Anywhere in Ohio)</h1>
+          <p class="lead">
+            We collect desktops, laptops, servers, monitors, and electronics from businesses, schools, and individuals.
+            Every device can be <strong>logged, tracked</strong>, and processed through <strong>secure data destruction</strong>,
+            then <strong>refurbished for a second life</strong> whenever possible.
+            <br><br>
+            <strong>Based in Elyria, Ohio</strong> — we’ll pick up anywhere in the state for free.
+          </p>
 
-    <label for="phone">Phone (optional):</label><br>
-    <input type="tel" id="phone" name="phone"><br>
+          <div class="actions">
+            <a class="btn primary" href="#contact">Request Free Pickup</a>
+            <a class="btn green" href="#services">See Services</a>
+            <a class="btn warn" href="#accept">What We Accept</a>
+            <a class="btn" href="mailto:jaevonb19@gmail.com?subject=Free%20Pickup%20Request%20-%20Amelia%20Asset%20Recovery">Email Us</a>
+          </div>
 
-    <label for="devices">Device Details (types, quantity):</label><br>
-    <textarea id="devices" name="devices" rows="4" required></textarea><br><br>
+          <div class="stats">
+            <div class="stat">
+              <strong class="big"><span data-count="100">0</span>%</strong>
+              <span>Goal: keep good tech out of landfills</span>
+            </div>
+            <div class="stat">
+              <strong class="big"><span data-count="1">0</span> Manifest</strong>
+              <span>Device logging &amp; tracking available</span>
+            </div>
+            <div class="stat">
+              <strong class="big"><span data-count="24">0</span>–<span data-count="72">0</span> hrs</strong>
+              <span>Fast response for Ohio pickups (typical)</span>
+            </div>
+          </div>
+        </div>
 
-    <label for="date">Preferred Pickup Date (optional):</label><br>
-    <input type="date" id="date" name="date"><br><br>
+        <div class="card soft">
+          <h2 style="margin:0 0 10px;">Quick Request Checklist</h2>
+          <p style="margin:0; color:var(--muted); font-weight:750;">
+            Want a smooth pickup? Send these details:
+          </p>
+          <ul style="margin:12px 0 0; color:var(--muted); font-weight:750; padding-left:18px;">
+            <li><strong>Pickup address</strong> + preferred day/time</li>
+            <li><strong>Device types &amp; quantities</strong> (ex: 20 desktops, 12 monitors)</li>
+            <li>Any drives requiring <strong>physical destruction</strong></li>
+            <li>Whether you need a <strong>manifest / documentation</strong></li>
+            <li>Any special handling (servers, racks, pallets, stairs, etc.)</li>
+          </ul>
 
-    <input type="submit" value="Request Pickup">
-  </form>
-</section>
+          <div class="tags">
+            <span class="tag hot">Always Free Pickup</span>
+            <span class="tag green">Ohio Statewide</span>
+            <span class="tag">Business</span>
+            <span class="tag">School</span>
+            <span class="tag">Individuals</span>
+            <span class="tag">Bulk Loads</span>
+          </div>
 
-<!-- Footer -->
-<footer>
-  <p>© 2025 Amelia Tech & Auto LLC | Doing Business as Amelia Asset Recovery</p>
-  <p>Email: jaevonb19@gmail.com</p>
-</footer>
+          <div style="margin-top:14px; border-top:1px solid var(--border); padding-top:14px;">
+            <p style="margin:0; color:var(--muted); font-weight:750;">
+              <strong>Mission:</strong> We hate seeing good tech tossed just because it’s “old.”
+              If it can help a family, a student, a nonprofit, or a home lab — we want it reused.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
+  <!-- Services (6 boxes) -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p class="sub">Six core services built around security, accountability, and maximizing reuse.</p>
+      </div>
+
+      <div class="grid">
+        <div class="feature">
+          <h3>1) Free Pickup Anywhere in Ohio</h3>
+          <p>We pick up statewide at no cost — businesses, schools, and individuals. Tell us what you have and where it is.</p>
+          <div class="tags">
+            <span class="tag hot">Free</span><span class="tag green">Ohio-wide</span><span class="tag">Appointment</span>
+          </div>
+        </div>
+
+        <div class="feature">
+          <h3>2) Secure Data Destruction</h3>
+          <p>Drives can be wiped or destroyed based on your needs. Chain-of-custody and documentation available.</p>
+          <div class="tags">
+            <span class="tag hot">Security</span><span class="tag">Wipe</span><span class="tag">Destroy</span>
+          </div>
+        </div>
+
+        <div class="feature">
+          <h3>3) Asset Logging &amp; Tracking</h3>
+          <p>Serial numbers + internal IDs can be recorded to support accountability and audit needs.</p>
+          <div class="tags">
+            <span class="tag">Serials</span><span class="tag">Manifest</span><span class="tag">Inventory</span>
+          </div>
+        </div>
+
+        <div class="feature">
+          <h3>4) Refurbishment &amp; Reuse</h3>
+          <p>We prioritize refurbishing functional equipment so it can be used again instead of scrapped.</p>
+          <div class="tags">
+            <span class="tag green">Reuse First</span><span class="tag">Upgrade</span><span class="tag">Test</span>
+          </div>
+        </div>
+
+        <div class="feature">
+          <h3>5) Responsible Recycling</h3>
+          <p>Non-reusable equipment is separated for responsible recycling to reduce environmental impact.</p>
+          <div class="tags">
+            <span class="tag">E-waste</span><span class="tag">Sorting</span><span class="tag">Materials</span>
+          </div>
+        </div>
+
+        <div class="feature">
+          <h3>6) Documentation for Compliance</h3>
+          <p>Pickup logs, device manifests, and destruction documentation can be provided for organizations.</p>
+          <div class="tags">
+            <span class="tag">Audits</span><span class="tag">Records</span><span class="tag">Peace of Mind</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission / Story -->
+  <section id="mission">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why We Exist</h2>
+        <p class="sub">Because “outdated” doesn’t mean “useless.” Good tech deserves a second life.</p>
+      </div>
+
+      <div class="split">
+        <div class="card">
+          <div class="glow"></div>
+          <h3 style="margin:0 0 10px;">Our mission is simple:</h3>
+          <p style="margin:0; color:var(--muted); font-weight:750;">
+            We want to pull as many desktops (and electronics) as possible out of landfills and put them back to work.
+            Too much technology is thrown away just because it’s older — even though it can still run schoolwork, small business tools,
+            home lab projects, or serve as a family computer.
+            <br><br>
+            We’re building a reuse-first pipeline: collect → secure → refurbish → redistribute or responsibly recycle.
+          </p>
+
+          <div class="tags" style="margin-top:14px;">
+            <span class="tag green">Reuse is the goal</span>
+            <span class="tag">Landfill reduction</span>
+            <span class="tag">Security-first</span>
+            <span class="tag">Local Ohio impact</span>
+          </div>
+        </div>
+
+        <div class="card soft">
+          <h3 style="margin:0 0 10px;">What “reuse-first” means</h3>
+          <ul style="margin:0; padding-left:18px; color:var(--muted); font-weight:750;">
+            <li><strong>We test before we scrap.</strong> A lot of “dead” equipment is a simple fix.</li>
+            <li><strong>We separate value.</strong> RAM, SSDs, and PSUs often have years left.</li>
+            <li><strong>We upgrade smart.</strong> Small upgrades can make old desktops useful again.</li>
+            <li><strong>We recycle what can’t be saved.</strong> Not everything can be reused, but it can be processed responsibly.</li>
+          </ul>
+
+          <div style="margin-top:14px; border-top:1px solid var(--border); padding-top:14px;">
+            <p style="margin:0; color:var(--muted); font-weight:750;">
+              If you’re a business with closets full of retired machines — we’ll make it easy.
+              Free pickup anywhere in Ohio.
+            </p>
+          </div>
+
+          <div class="actions" style="margin-top:14px;">
+            <a class="btn primary" href="#contact">Get Free Pickup</a>
+            <a class="btn" href="#process">See the Process</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Process</h2>
+        <p class="sub">A clear chain-of-custody style workflow designed for security + accountability.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3>Request &amp; Schedule</h3>
+          <p>Send your location + device list. We coordinate a pickup time anywhere in Ohio.</p>
+        </div>
+        <div class="step">
+          <h3>Pickup &amp; Intake</h3>
+          <p>We collect the equipment and begin intake. Devices can be separated by type and batch.</p>
+        </div>
+        <div class="step">
+          <h3>Logging / Tracking</h3>
+          <p>Serials + internal IDs can be recorded. Manifests can be produced for your records.</p>
+        </div>
+        <div class="step">
+          <h3>Data Destruction</h3>
+          <p>Drives are wiped or destroyed (based on your request). Documentation available.</p>
+        </div>
+        <div class="step">
+          <h3>Refurbish &amp; Redeploy</h3>
+          <p>Working systems are tested and refurbished for reuse whenever possible.</p>
+        </div>
+        <div class="step">
+          <h3>Recycle Responsibly</h3>
+          <p>What can’t be reused is separated and processed through responsible recycling channels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we accept -->
+  <section id="accept">
+    <div class="container">
+      <div class="section-title">
+        <h2>What We Accept</h2>
+        <p class="sub">If it plugs in (or used to), we probably take it. When in doubt, ask.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 10px;">Common equipment</h3>
+        <div class="accept">
+          <span class="chip">🖥️ Desktops <small>(SFF / towers / AIO)</small></span>
+          <span class="chip">💻 Laptops <small>(business + consumer)</small></span>
+          <span class="chip">🗄️ Servers <small>(rack / tower)</small></span>
+          <span class="chip">🖧 Networking <small>(switches / routers)</small></span>
+          <span class="chip">🖨️ Printers <small>(office / home)</small></span>
+          <span class="chip">🖥️ Monitors <small>(LCD / LED)</small></span>
+          <span class="chip">⌨️ Keyboards / Mice <small>(bulk OK)</small></span>
+          <span class="chip">🔌 Cables <small>(HDMI / power / misc)</small></span>
+          <span class="chip">🧠 RAM / CPUs <small>(loose components)</small></span>
+          <span class="chip">💽 Storage <small>(HDD / SSD)</small></span>
+          <span class="chip">📦 Bulk lots <small>(closets, pallets, storage rooms)</small></span>
+          <span class="chip">🧰 Misc electronics <small>(ask us)</small></span>
+        </div>
+
+        <div style="margin-top:14px; border-top:1px solid var(--border); padding-top:14px;">
+          <p style="margin:0; color:var(--muted); font-weight:750;">
+            <strong>Pro tip:</strong> If you have a lot, don’t worry about sorting everything perfectly.
+            Just give us a rough count and we’ll handle the rest.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAID -->
+  <section id="naid">
+    <div class="container">
+      <div class="section-title">
+        <h2>NAID Certification</h2>
+        <p class="sub">Security matters. We take data destruction seriously.</p>
+      </div>
+
+      <div class="split">
+        <div class="card">
+          <div class="glow"></div>
+          <h3 style="margin:0 0 10px;">NAID Certified</h3>
+          <p style="margin:0; color:var(--muted); font-weight:750;">
+            We are <strong>NAID Certified</strong>. If you need proof for compliance,
+            we can provide certification details as available.
+            <br><br>
+            <strong>Note:</strong> a replacement copy of the certificate is currently being reissued since the original was misplaced.
+          </p>
+
+          <div class="tags" style="margin-top:14px;">
+            <span class="tag hot">Data destruction</span>
+            <span class="tag">Chain-of-custody mindset</span>
+            <span class="tag green">Client peace of mind</span>
+          </div>
+        </div>
+
+        <div class="card soft">
+          <h3 style="margin:0 0 10px;">Security options</h3>
+          <ul style="margin:0; padding-left:18px; color:var(--muted); font-weight:750;">
+            <li><strong>Wipe</strong> (when appropriate for reuse)</li>
+            <li><strong>Physical destruction</strong> (when requested)</li>
+            <li><strong>Documentation</strong> (manifests, logs, destruction notes)</li>
+            <li><strong>Clear handling</strong> (tracked processing, organized batches)</li>
+          </ul>
+
+          <div class="actions" style="margin-top:14px;">
+            <a class="btn primary" href="#contact">Request Pickup</a>
+            <a class="btn" href="mailto:jaevonb19@gmail.com?subject=NAID%20/ %20Compliance%20Question%20-%20Amelia%20Asset%20Recovery">Ask a Compliance Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-title">
+        <h2>Gallery</h2>
+        <p class="sub">Swap these placeholders with real photos later (pickup loads, refurb builds, pallets, clean work area, etc.).</p>
+      </div>
+
+      <div class="gallery">
+        <div class="photo">
+          <div class="ph"></div>
+          <div class="cap">
+            <h3>Bulk Pickup Loads</h3>
+            <p>Office closets, school storage rooms, and full cleanouts — free pickup statewide.</p>
+          </div>
+        </div>
+        <div class="photo">
+          <div class="ph"></div>
+          <div class="cap">
+            <h3>Refurb &amp; Testing</h3>
+            <p>We test, clean, and upgrade systems to extend their useful life.</p>
+          </div>
+        </div>
+        <div class="photo">
+          <div class="ph"></div>
+          <div class="cap">
+            <h3>Sorting &amp; Recycling</h3>
+            <p>Non-reusable equipment is separated and processed responsibly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>FAQ</h2>
+        <p class="sub">Quick answers. If you don’t see your question, email us.</p>
+      </div>
+
+      <details>
+        <summary>Is pickup really free anywhere in Ohio? <span class="chev">⌄</span></summary>
+        <p>Yes. Pickup is always free statewide. Just send your address and a rough device list.</p>
+      </details>
+
+      <details>
+        <summary>Do you work with businesses and schools? <span class="chev">⌄</span></summary>
+        <p>Yes — businesses, schools, nonprofits, and individuals. We can handle anything from a few PCs to bulk loads.</p>
+      </details>
+
+      <details>
+        <summary>Do you provide documentation? <span class="chev">⌄</span></summary>
+        <p>Yes. We can provide pickup logs, device manifests (serials/IDs), and destruction documentation based on your needs.</p>
+      </details>
+
+      <details>
+        <summary>Can you destroy drives instead of wiping? <span class="chev">⌄</span></summary>
+        <p>Yes — if you request physical destruction, we’ll process drives accordingly and note it in documentation where applicable.</p>
+      </details>
+
+      <details>
+        <summary>What if our equipment is “old”? <span class="chev">⌄</span></summary>
+        <p>That’s exactly what we want. Old equipment often still has a home — schoolwork, families, nonprofits, labs — and we try to refurbish whenever possible.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Request a Free Pickup</h2>
+        <p class="sub">Fill this out — it opens an email to us with your details. (No phone required.)</p>
+      </div>
+
+      <div class="split">
+        <div class="card">
+          <h3 style="margin:0 0 10px;">Pickup Request Form</h3>
+          <form action="mailto:jaevonb19@gmail.com" method="post" enctype="text/plain">
+            <div class="row2">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required>
+              </div>
+              <div>
+                <label for="org">Company / School (optional)</label>
+                <input id="org" name="organization" type="text" placeholder="Organization">
+              </div>
+            </div>
+
+            <div class="row2">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@email.com" required>
+              </div>
+              <div>
+                <label for="city">City (or full address)</label>
+                <input id="city" name="pickup_location" type="text" placeholder="Elyria, OH (or full address)" required>
+              </div>
+            </div>
+
+            <label for="devices">Device details (types + quantity)</label>
+            <textarea id="devices" name="devices" placeholder="Example: 25 desktops, 14 monitors, 3 printers. Some drives need destruction." required></textarea>
+
+            <div class="row2">
+              <div>
+                <label for="date">Preferred pickup date (optional)</label>
+                <input id="date" name="preferred_date" type="date">
+              </div>
+              <div>
+                <label for="docs">Documentation needed?</label>
+                <select id="docs" name="documentation">
+                  <option value="Manifest">Manifest</option>
+                  <option value="Destruction Documentation">Destruction documentation</option>
+                  <option value="Both">Both</option>
+                  <option value="Not Needed">Not needed</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="btn primary" type="submit">Send Free Pickup Request</button>
+            <p class="note">If your email app doesn’t open, email us directly: <strong>jaevonb19@gmail.com</strong></p>
+          </form>
+        </div>
+
+        <div class="card soft">
+          <h3 style="margin:0 0 10px;">Direct Contact</h3>
+          <p style="margin:0; color:var(--muted); font-weight:750;">
+            Email: <strong>jaevonb19@gmail.com</strong><br>
+            Location: <strong>Elyria, Ohio</strong><br>
+            Service Area: <strong>Free pickup anywhere in Ohio</strong><br><br>
+            Want the fastest reply? Send your city + device list and we’ll coordinate pickup.
+          </p>
+
+          <div class="actions" style="margin-top:14px;">
+            <a class="btn primary" href="mailto:jaevonb19@gmail.com?subject=Free%20Pickup%20Request%20-%20Amelia%20Asset%20Recovery">Email Now</a>
+            <a class="btn" href="#accept">Accepted Items</a>
+          </div>
+
+          <p class="note" style="margin-top:14px;">
+            © 2025 Amelia Tech &amp; Auto LLC — Doing Business as Amelia Asset Recovery
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footrow">
+        <div class="brand"><span class="dot"></span><span>Amelia Asset Recovery</span></div>
+        <div class="mini">Free pickup anywhere in Ohio • Elyria, OH</div>
+      </div>
+      <div class="legal">
+        NAID certification: replacement copy currently being reissued. Wipe/destruction documentation available based on request.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <div id="topBtn">
+    <button class="btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Back to Top</button>
+  </div>
+
+  <script>
+    // Progress bar + back to top
+    const progress = document.getElementById('progress');
+    const topBtn = document.getElementById('topBtn');
+
+    function onScroll(){
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progress.style.width = pct + '%';
+
+      if(scrollTop > 700) topBtn.style.display = 'block';
+      else topBtn.style.display = 'none';
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    // Mobile drawer
+    const drawer = document.getElementById('drawer');
+    function toggleDrawer(open){
+      drawer.classList.toggle('open', !!open);
+      drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    drawer.addEventListener('click', (e)=>{
+      if(e.target === drawer) toggleDrawer(false);
+    });
+
+    // Theme toggle
+    const themeBtn = document.getElementById('themeBtn');
+    const root = document.body;
+
+    function setTheme(t){
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      themeBtn.textContent = (t === 'light') ? '☼' : '☾';
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme) setTheme(savedTheme);
+    else setTheme('dark');
+
+    themeBtn.addEventListener('click', ()=>{
+      const current = root.getAttribute('data-theme') || 'dark';
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    // Accent switcher (blue -> purple -> orange -> teal -> back)
+    const accentBtn = document.getElementById('accentBtn');
+    const accents = [
+      {a:'#3b82f6', b:'#22c55e'}, // blue/green
+      {a:'#a855f7', b:'#22c55e'}, // purple/green
+      {a:'#f97316', b:'#3b82f6'}, // orange/blue
+      {a:'#14b8a6', b:'#a855f7'}  // teal/purple
+    ];
+    let accentIndex = parseInt(localStorage.getItem('accentIndex') || '0', 10);
+
+    function applyAccent(i){
+      const pick = accents[i % accents.length];
+      document.documentElement.style.setProperty('--accent', pick.a);
+      document.documentElement.style.setProperty('--accent2', pick.b);
+      localStorage.setItem('accentIndex', String(i % accents.length));
+    }
+    applyAccent(accentIndex);
+
+    accentBtn.addEventListener('click', ()=>{
+      accentIndex = (accentIndex + 1) % accents.length;
+      applyAccent(accentIndex);
+    });
+
+    // Animated counters (hero stats)
+    function animateCounters(){
+      const els = document.querySelectorAll('[data-count]');
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-count'), 10);
+          const start = 0;
+          const duration = 1100 + Math.random()*450;
+          const t0 = performance.now();
+
+          function tick(now){
+            const p = Math.min(1, (now - t0)/duration);
+            const val = Math.round(start + (target - start) * (1 - Math.pow(1 - p, 3)));
+            el.textContent = String(val);
+            if(p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          observer.unobserve(el);
+        });
+      }, {threshold: 0.35});
+
+      els.forEach(el=>observer.observe(el));
+    }
+    animateCounters();
+  </script>
 </body>
 </html>
