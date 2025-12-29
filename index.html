@@ -4,31 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Amelia Asset Recovery | NAID-Certified ITAD & E-Waste Pickup in Ohio</title>
+  <title>Amelia Asset Recovery | Secure ITAD & Free Ohio Pickup</title>
 
   <!-- SEO -->
-  <meta name="description" content="Amelia Asset Recovery (Amelia Tech & Auto LLC) provides NAID-certified IT Asset Disposition, secure data destruction, and free same-day pickup across Ohio. Based in Elyria, OH. We log every device, wipe or destroy data, refurbish usable desktops, and recycle responsibly." />
-  <meta name="keywords" content="ITAD Ohio, IT asset disposition Ohio, data destruction Ohio, NAID certified Ohio, e-waste pickup Ohio, computer recycling Elyria, hard drive destruction Ohio, secure data wiping Ohio, electronics recycling Ohio, desktop refurbishing Ohio" />
+  <meta name="description" content="Amelia Asset Recovery (Amelia Tech & Auto LLC) provides secure IT Asset Disposition (ITAD), data sanitization aligned with NIST SP 800-88, and free pickup across Ohio. Based in Elyria, OH. Asset logging, verified wiping or destruction, refurbishment, and responsible recycling." />
+  <meta name="keywords" content="ITAD Ohio, IT asset disposition Ohio, data destruction Ohio, NIST 800-88 Ohio, secure data wiping Ohio, e-waste pickup Ohio, computer recycling Elyria, hard drive destruction Ohio, electronics recycling Ohio, desktop refurbishing Ohio, ITAD Elyria, ITAD Cleveland, ITAD Columbus, ITAD Cincinnati, ITAD Toledo, ITAD Akron" />
   <meta name="robots" content="index,follow" />
   <meta name="author" content="Jaevon Bell" />
 
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Amelia Asset Recovery | NAID-Certified ITAD in Ohio" />
-  <meta property="og:description" content="Free same-day pickup across Ohio. Secure wiping & destruction, chain-of-custody tracking, refurbishment, and responsible recycling. Based in Elyria." />
+  <!-- Social -->
+  <meta property="og:title" content="Amelia Asset Recovery | Secure ITAD in Ohio" />
+  <meta property="og:description" content="Free pickup across Ohio. Data sanitization aligned with NIST SP 800-88. Chain-of-custody tracking, refurbishment-first approach, and responsible recycling." />
   <meta property="og:type" content="website" />
-  <!-- If you later add your real domain, update canonical + og:url -->
-  <meta property="og:url" content="" />
-  <meta property="og:image" content="https://source.unsplash.com/1200x630/?computer,hardware" />
+  <meta property="og:image" content="assets/desktops.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Basic performance niceties -->
-  <link rel="preconnect" href="https://source.unsplash.com" crossorigin>
 
   <style>
     :root{
       --bg: #0b1020;
       --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.10);
+      --card2: rgba(255,255,255,.11);
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.70);
       --line: rgba(255,255,255,.14);
@@ -37,12 +32,17 @@
       --radius: 18px;
       --radius2: 28px;
       --max: 1120px;
-      --accent: #7c3aed; /* default */
+
+      --accent: #7c3aed;
       --accent2: #22c55e;
+      --accent3: #38bdf8;
       --warn: #f59e0b;
+
+      --ok: rgba(34,197,94,.18);
+      --info: rgba(56,189,248,.16);
+      --hot: rgba(239,68,68,.16);
     }
 
-    /* Light theme */
     [data-theme="light"]{
       --bg: #f7f8fb;
       --card: rgba(0,0,0,.04);
@@ -52,115 +52,108 @@
       --line: rgba(17,24,39,.12);
       --shadow: 0 20px 60px rgba(0,0,0,.12);
       --shadow2: 0 14px 44px rgba(0,0,0,.10);
+
+      --ok: rgba(34,197,94,.14);
+      --info: rgba(56,189,248,.12);
+      --hot: rgba(239,68,68,.10);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
-      margin: 0;
+      margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 10% 10%, rgba(124,58,237,.22), transparent 60%),
-                  radial-gradient(1000px 700px at 90% 20%, rgba(34,197,94,.18), transparent 55%),
-                  radial-gradient(900px 600px at 50% 90%, rgba(245,158,11,.12), transparent 50%),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 800px at 10% 10%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 60%),
+        radial-gradient(1000px 700px at 90% 20%, rgba(34,197,94,.18), transparent 55%),
+        radial-gradient(900px 600px at 50% 90%, rgba(255,255,255,.05), transparent 50%),
+        var(--bg);
       color: var(--text);
-      overflow-x: hidden;
+      overflow-x:hidden;
     }
 
-    /* Sparkle/ambient layer (FIXED: body[data-ambient="on"] instead of broken selector) */
-    body::before{
+    /* Ambient glow blobs (actually visible) */
+    body::before, body::after{
       content:"";
       position: fixed;
-      inset: 0;
-      pointer-events: none;
+      inset: -20%;
+      pointer-events:none;
       opacity: 0;
-      transition: opacity .5s ease;
-      background:
-        radial-gradient(circle at 12% 24%, rgba(255,255,255,.22) 0 1px, transparent 2px),
-        radial-gradient(circle at 26% 64%, rgba(255,255,255,.18) 0 1px, transparent 2px),
-        radial-gradient(circle at 52% 18%, rgba(255,255,255,.20) 0 1px, transparent 2px),
-        radial-gradient(circle at 72% 44%, rgba(255,255,255,.16) 0 1px, transparent 2px),
-        radial-gradient(circle at 86% 78%, rgba(255,255,255,.18) 0 1px, transparent 2px),
-        radial-gradient(circle at 34% 88%, rgba(255,255,255,.14) 0 1px, transparent 2px);
-      filter: blur(.2px);
-      mix-blend-mode: overlay;
+      transition: opacity .35s ease;
       z-index: 0;
-      animation: twinkle 5s linear infinite;
+      filter: blur(34px);
     }
-    body[data-ambient="on"]::before{ opacity: 1; }
-    @keyframes twinkle{
-      0%{ transform: translate3d(0,0,0); }
-      50%{ transform: translate3d(0,-6px,0); }
-      100%{ transform: translate3d(0,0,0); }
+    body::before{
+      background:
+        radial-gradient(circle at 18% 22%, color-mix(in srgb, var(--accent) 40%, transparent), transparent 45%),
+        radial-gradient(circle at 78% 30%, rgba(34,197,94,.28), transparent 45%),
+        radial-gradient(circle at 55% 80%, rgba(56,189,248,.20), transparent 55%);
+      animation: floatA 8s ease-in-out infinite;
     }
+    body::after{
+      background:
+        radial-gradient(circle at 28% 70%, rgba(245,158,11,.18), transparent 50%),
+        radial-gradient(circle at 88% 78%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 55%);
+      animation: floatB 10s ease-in-out infinite;
+    }
+    body[data-ambient="on"]::before,
+    body[data-ambient="on"]::after{ opacity: 1; }
+    @keyframes floatA{ 0%,100%{ transform: translate3d(0,0,0) scale(1); } 50%{ transform: translate3d(12px,-10px,0) scale(1.03); } }
+    @keyframes floatB{ 0%,100%{ transform: translate3d(0,0,0) scale(1); } 50%{ transform: translate3d(-10px,12px,0) scale(1.02); } }
 
-    /* Layout */
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 18px; position: relative; z-index: 1; }
+    .wrap{ max-width: var(--max); margin:0 auto; padding:0 18px; position:relative; z-index:1; }
+
+    /* NAV */
     .nav{
       position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(14px);
       background: linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.10));
       border-bottom: 1px solid var(--line);
     }
-    [data-theme="light"] .nav{ background: linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,.35)); }
+    [data-theme="light"] .nav{ background: linear-gradient(to bottom, rgba(255,255,255,.80), rgba(255,255,255,.35)); }
+    .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0; flex-wrap:wrap; }
 
-    .nav-inner{
-      display:flex; align-items:center; justify-content: space-between;
-      padding: 12px 0;
-      gap: 12px;
-    }
-    .brand{
-      display:flex; align-items:center; gap: 12px; min-width: 220px;
-      text-decoration:none; color: var(--text);
-    }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text); }
     .logo{
-      width: 40px; height: 40px; border-radius: 12px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.25), transparent 60%),
-                  linear-gradient(135deg, var(--accent), rgba(34,197,94,.55));
+      width:40px; height:40px; border-radius:12px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.25), transparent 60%),
+        linear-gradient(135deg, var(--accent), rgba(34,197,94,.55));
       box-shadow: var(--shadow2);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow:hidden;
     }
     .logo::after{
       content:"";
       position:absolute; inset:-30%;
-      background: conic-gradient(from 120deg, transparent, rgba(255,255,255,.35), transparent);
-      animation: spin 4s linear infinite;
-      opacity:.65;
+      background: conic-gradient(from 120deg, transparent, rgba(255,255,255,.20), transparent);
+      animation: spin 6s linear infinite;
+      opacity:.35;
     }
-    @keyframes spin{ to { transform: rotate(360deg); } }
-    .brand b{ display:block; font-size: .98rem; letter-spacing: .2px; }
-    .brand small{ display:block; color: var(--muted); font-size: .78rem; margin-top: 2px; }
+    @keyframes spin{ to{ transform: rotate(360deg);} }
 
-    .nav-links{
-      display:flex; gap: 14px; flex-wrap: wrap; justify-content:center;
-    }
+    .brand b{ display:block; font-size:.98rem; letter-spacing:.2px; }
+    .brand small{ display:block; color:var(--muted); font-size:.78rem; margin-top:2px; }
+
+    .nav-links{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
     .nav-links a{
       color: var(--muted);
       text-decoration:none;
-      font-weight: 650;
+      font-weight: 780;
       font-size: .90rem;
       padding: 10px 10px;
       border-radius: 12px;
       transition: transform .15s ease, background .15s ease, color .15s ease;
     }
-    .nav-links a:hover{
-      color: var(--text);
-      background: var(--card);
-      transform: translateY(-1px);
-    }
+    .nav-links a:hover{ color:var(--text); background:var(--card); transform: translateY(-1px); }
 
-    .controls{
-      display:flex; gap: 10px; align-items:center; justify-content:flex-end;
-      min-width: 280px;
-    }
+    .controls{ display:flex; gap:10px; align-items:center; justify-content:flex-end; }
     .btn, .pill, select{
-      border: 1px solid var(--line);
+      border:1px solid var(--line);
       background: var(--card);
       color: var(--text);
       border-radius: 14px;
       padding: 10px 12px;
-      font-weight: 700;
+      font-weight: 820;
       cursor:pointer;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
@@ -170,39 +163,30 @@
       background: linear-gradient(135deg, var(--accent), rgba(34,197,94,.75));
       color: white;
       box-shadow: var(--shadow2);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
     }
-    .btn.primary:hover{ filter: brightness(1.03); }
-    select{ padding: 10px 10px; font-weight: 750; }
 
-    /* Hero */
-    .hero{
-      padding: 52px 0 12px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    @media (max-width: 940px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .controls{ min-width: unset; }
-      .brand{ min-width: unset; }
-    }
+    /* HERO */
+    .hero{ padding: 52px 0 14px; }
+    .hero-grid{ display:grid; grid-template-columns: 1.25fr .75fr; gap:18px; align-items:stretch; }
+    @media (max-width: 940px){ .hero-grid{ grid-template-columns: 1fr; } }
 
     .panel{
       border: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
+      overflow:hidden;
     }
     [data-theme="light"] .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.55));
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.55));
     }
 
     .hero-main{ padding: 26px 24px 22px; }
+
     .kicker{
       display:inline-flex; gap:10px; flex-wrap: wrap; align-items:center;
       padding: 8px 10px;
@@ -210,12 +194,12 @@
       border: 1px solid var(--line);
       background: rgba(0,0,0,.10);
       color: var(--muted);
-      font-weight: 800;
+      font-weight: 860;
       font-size: .82rem;
     }
     [data-theme="light"] .kicker{ background: rgba(255,255,255,.50); }
     .dot{
-      width: 10px; height: 10px; border-radius: 99px;
+      width:10px; height:10px; border-radius:99px;
       background: var(--accent2);
       box-shadow: 0 0 16px rgba(34,197,94,.65);
     }
@@ -226,41 +210,38 @@
       line-height: 1.08;
       letter-spacing: -0.6px;
     }
-    .hero p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.04rem;
-      max-width: 62ch;
-    }
+    .hero p{ margin:0; color:var(--muted); font-size: 1.04rem; max-width:62ch; }
 
-    .hero-cta{
-      display:flex; flex-wrap: wrap; gap: 12px;
-      margin-top: 18px;
-      align-items:center;
-    }
+    .hero-cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; align-items:center; }
 
-    /* Same-day animated badge */
+    /* Same-Day badge (no rotating white flash) */
     .badge{
-      display:inline-flex;
-      gap: 10px;
-      align-items:center;
+      display:inline-flex; gap:10px; align-items:center;
       padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid rgba(34,197,94,.35);
       background: rgba(34,197,94,.12);
-      font-weight: 900;
+      font-weight: 920;
       letter-spacing: .2px;
-      color: rgba(255,255,255,.92);
       position: relative;
-      overflow: hidden;
+      overflow:hidden;
+      isolation: isolate;
     }
-    [data-theme="light"] .badge{ color: rgba(17,24,39,.92); }
     .badge::after{
       content:"";
-      position:absolute; inset:-40%;
-      background: conic-gradient(from 180deg, transparent, rgba(255,255,255,.55), transparent);
-      opacity: .35;
-      animation: spin 2.8s linear infinite;
+      position:absolute;
+      inset:0;
+      background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.10) 40%, transparent 70%);
+      transform: translateX(-120%);
+      animation: shimmer 2.8s ease-in-out infinite;
+      opacity:.75;
+      z-index: 0;
+      pointer-events:none;
+    }
+    @keyframes shimmer{
+      0%{ transform: translateX(-120%); }
+      55%{ transform: translateX(120%); }
+      100%{ transform: translateX(120%); }
     }
     .badge .pulse{
       width: 10px; height: 10px; border-radius: 99px;
@@ -270,15 +251,26 @@
       position: relative; z-index: 1;
     }
     @keyframes pulse{
-      0%{ box-shadow: 0 0 0 0 rgba(34,197,94,.55); }
-      100%{ box-shadow: 0 0 0 16px rgba(34,197,94,0); }
+      0%{ box-shadow:0 0 0 0 rgba(34,197,94,.55); }
+      100%{ box-shadow:0 0 0 16px rgba(34,197,94,0); }
     }
     .badge span{ position: relative; z-index: 1; }
 
-    /* Right hero card with image collage */
-    .hero-side{
-      display:flex; flex-direction:column;
+    /* Stats */
+    .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:14px; }
+    @media (max-width: 900px){ .grid-3{ grid-template-columns: 1fr; } }
+    .stat{
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: var(--shadow2);
     }
+    .stat b{ font-size: 1.25rem; display:block; }
+    .stat small{ color: var(--muted); font-weight: 760; }
+    .stat .mini{ margin-top: 10px; color: var(--muted); font-weight: 650; font-size: .95rem; }
+
+    /* Collage */
     .collage{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -292,14 +284,23 @@
       overflow:hidden;
       position: relative;
       box-shadow: var(--shadow2);
-      background: var(--card);
+      background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+    }
+    .shot::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.10), transparent 55%),
+                  radial-gradient(circle at 70% 80%, rgba(255,255,255,.06), transparent 55%);
+      z-index:0;
     }
     .shot img{
-      width:100%; height:100%;
+      width:100%;
+      height:100%;
       object-fit: cover;
       display:block;
-      filter: saturate(1.05) contrast(1.05);
-      transform: scale(1.03);
+      position:relative;
+      z-index:1;
     }
     .shot .cap{
       position:absolute; left: 10px; bottom: 10px;
@@ -308,57 +309,18 @@
       border: 1px solid var(--line);
       background: rgba(0,0,0,.45);
       backdrop-filter: blur(8px);
-      font-weight: 850;
+      font-weight: 900;
       font-size: .80rem;
       color: rgba(255,255,255,.92);
+      z-index: 2;
     }
 
     /* Sections */
     section{ padding: 44px 0; }
-    .section-title{
-      display:flex; align-items:flex-end; justify-content: space-between; gap: 12px;
-      margin-bottom: 16px;
-    }
-    .section-title h2{
-      margin:0;
-      font-size: 1.6rem;
-      letter-spacing: -0.3px;
-    }
-    .section-title p{
-      margin:0;
-      color: var(--muted);
-      max-width: 60ch;
-      font-weight: 650;
-    }
+    .section-title{ display:flex; align-items:flex-end; justify-content: space-between; gap:12px; margin-bottom:16px; }
+    .section-title h2{ margin:0; font-size:1.6rem; letter-spacing:-0.3px; }
+    .section-title p{ margin:0; color:var(--muted); max-width:64ch; font-weight:650; }
 
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    @media (max-width: 900px){ .grid-3{ grid-template-columns: 1fr; } }
-
-    /* Stats */
-    .stat{
-      padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: var(--card);
-      box-shadow: var(--shadow2);
-      position: relative;
-      overflow:hidden;
-    }
-    .stat b{ font-size: 1.25rem; display:block; }
-    .stat small{ color: var(--muted); font-weight: 700; }
-    .stat .mini{ margin-top: 10px; color: var(--muted); font-weight: 650; font-size: .95rem; }
-
-    /* Services */
-    .services{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    @media (max-width: 980px){ .services{ grid-template-columns: 1fr; } }
     .card{
       padding: 18px;
       border-radius: var(--radius);
@@ -366,27 +328,23 @@
       background: linear-gradient(180deg, var(--card), rgba(0,0,0,0));
       box-shadow: var(--shadow2);
       transition: transform .15s ease, background .15s ease;
-      position: relative;
     }
     .card:hover{ transform: translateY(-2px); background: linear-gradient(180deg, var(--card2), rgba(0,0,0,0)); }
+
     .icon{
       width: 44px; height: 44px; border-radius: 14px;
       display:grid; place-items:center;
-      background: rgba(124,58,237,.18);
-      border: 1px solid rgba(124,58,237,.26);
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
       margin-bottom: 10px;
       font-weight: 950;
       font-size: 1.05rem;
     }
-    .card h3{ margin: 0 0 6px; letter-spacing: -.2px; }
-    .card p{ margin: 0; color: var(--muted); font-weight: 650; }
 
-    /* Process */
-    .steps{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
+    .services{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+    @media (max-width: 980px){ .services{ grid-template-columns: 1fr; } }
+
+    .steps{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
     @media (max-width: 980px){ .steps{ grid-template-columns: 1fr; } }
     .step{
       padding: 18px;
@@ -395,29 +353,18 @@
       background: var(--card);
       box-shadow: var(--shadow2);
     }
-    .step .num{
-      display:inline-flex; align-items:center; gap: 10px;
-      font-weight: 950;
-      letter-spacing: .2px;
-      color: rgba(255,255,255,.92);
-    }
-    [data-theme="light"] .step .num{ color: rgba(17,24,39,.92); }
+    .step .num{ display:inline-flex; align-items:center; gap:10px; font-weight:950; letter-spacing:.2px; }
     .step .num i{
-      width: 30px; height: 30px; border-radius: 12px;
+      width:30px; height:30px; border-radius:12px;
       background: linear-gradient(135deg, var(--accent), rgba(34,197,94,.65));
       display:grid; place-items:center;
       font-style: normal;
       color: white;
     }
-    .step h4{ margin: 10px 0 6px; }
-    .step p{ margin: 0; color: var(--muted); font-weight: 650; }
+    .step h4{ margin:10px 0 6px; }
+    .step p{ margin:0; color:var(--muted); font-weight:650; }
 
-    /* Why scrappers */
-    .compare{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+    .compare{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
     @media (max-width: 980px){ .compare{ grid-template-columns: 1fr; } }
     .compare .box{
       border: 1px solid var(--line);
@@ -427,15 +374,24 @@
       box-shadow: var(--shadow2);
     }
     .compare h3{ margin: 0 0 10px; }
-    .list{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-weight: 650;
-    }
-    .list li{ margin: 8px 0; }
+    .list{ margin:0; padding-left:18px; color:var(--muted); font-weight:650; }
+    .list li{ margin:8px 0; }
 
-    /* FAQ accordion */
+    .pillrow{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+    .tag{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius:999px;
+      padding: 8px 10px;
+      font-weight: 860;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+    .tag b{ color: var(--text); }
+
     .faq{
       border: 1px solid var(--line);
       border-radius: var(--radius2);
@@ -443,30 +399,21 @@
       background: var(--card);
       box-shadow: var(--shadow2);
     }
-    details{
-      border-top: 1px solid var(--line);
-      padding: 14px 16px;
-    }
-    details:first-child{ border-top: none; }
+    details{ border-top: 1px solid var(--line); padding: 14px 16px; }
+    details:first-child{ border-top:none; }
     summary{
-      cursor: pointer;
-      list-style: none;
+      cursor:pointer;
+      list-style:none;
       font-weight: 900;
-      display:flex; align-items:center; justify-content: space-between;
-      gap: 10px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
     }
     summary::-webkit-details-marker{ display:none; }
     summary .chev{ opacity:.75; transition: transform .18s ease; }
     details[open] summary .chev{ transform: rotate(180deg); }
-    details p{ margin: 10px 0 0; color: var(--muted); font-weight: 650; }
+    details p{ margin:10px 0 0; color:var(--muted); font-weight:650; }
 
-    /* Map + Contact */
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-items: stretch;
-    }
+    .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
     @media (max-width: 980px){ .contact-grid{ grid-template-columns: 1fr; } }
 
     .form{
@@ -476,18 +423,20 @@
       padding: 18px;
       box-shadow: var(--shadow2);
     }
-    label{ display:block; font-weight: 850; margin-top: 10px; margin-bottom: 6px; }
-    input, textarea{
+    label{ display:block; font-weight:850; margin-top: 10px; margin-bottom: 6px; }
+    input, textarea, select.formsel{
       width:100%;
       border-radius: 14px;
       border: 1px solid var(--line);
       background: rgba(0,0,0,.12);
       color: var(--text);
       padding: 11px 12px;
-      outline: none;
+      outline:none;
       font-weight: 700;
     }
-    [data-theme="light"] input, [data-theme="light"] textarea{ background: rgba(255,255,255,.75); }
+    [data-theme="light"] input, [data-theme="light"] textarea, [data-theme="light"] select.formsel{
+      background: rgba(255,255,255,.75);
+    }
     textarea{ min-height: 110px; resize: vertical; }
     .hint{ color: var(--muted); font-weight: 650; font-size: .92rem; margin-top: 8px; }
 
@@ -501,26 +450,10 @@
     }
     .map iframe{ width:100%; height:100%; border:0; display:block; }
 
-    /* Footer */
-    footer{
-      padding: 30px 0 44px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-weight: 650;
-    }
-    .foot{
-      display:flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items:center;
-      justify-content: space-between;
-    }
-    .fine{
-      max-width: 70ch;
-      font-size: .92rem;
-    }
+    footer{ padding: 30px 0 44px; border-top: 1px solid var(--line); color: var(--muted); font-weight:650; }
+    .foot{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
+    .fine{ max-width: 72ch; font-size: .92rem; }
 
-    /* Toast */
     .toast{
       position: fixed;
       left: 50%;
@@ -541,9 +474,27 @@
     }
     [data-theme="light"] .toast{ background: rgba(255,255,255,.75); color: rgba(17,24,39,.92); }
     .toast.show{ opacity: 1; transform: translateX(-50%) translateY(-4px); }
+
+    /* SEO city grid */
+    .cities{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 980px){ .cities{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px){ .cities{ grid-template-columns: 1fr; } }
+    .city{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: var(--shadow2);
+    }
+    .city b{ display:block; margin-bottom:6px; }
+    .city small{ color: var(--muted); font-weight:650; }
   </style>
 
-  <!-- LocalBusiness structured data -->
+  <!-- LocalBusiness schema -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -551,21 +502,15 @@
     "name":"Amelia Asset Recovery",
     "legalName":"Amelia Tech & Auto LLC",
     "founder":"Jaevon Bell",
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Elyria",
-      "addressRegion":"OH",
-      "addressCountry":"US"
-    },
+    "address":{"@type":"PostalAddress","addressLocality":"Elyria","addressRegion":"OH","addressCountry":"US"},
     "areaServed":"Ohio",
     "email":"jaevonb19@gmail.com",
-    "description":"NAID-certified IT Asset Disposition (ITAD), secure data destruction, and free same-day pickup across Ohio. We log every device, wipe or destroy data, refurbish usable desktops, and recycle responsibly."
+    "description":"Secure IT Asset Disposition (ITAD) and data sanitization aligned with NIST SP 800-88. Free pickup across Ohio. Asset logging, verified wiping or destruction, refurbishment, and responsible recycling."
   }
   </script>
 </head>
 
 <body data-theme="dark" data-ambient="off">
-  <!-- NAV -->
   <div class="nav">
     <div class="wrap">
       <div class="nav-inner">
@@ -573,7 +518,7 @@
           <div class="logo" aria-hidden="true"></div>
           <div>
             <b>Amelia Asset Recovery</b>
-            <small>NAID-Certified ITAD • Elyria, Ohio • Free Pickup Statewide</small>
+            <small>Secure ITAD • Elyria, Ohio • Free Pickup Statewide</small>
           </div>
         </a>
 
@@ -581,19 +526,26 @@
           <a href="#services">Services</a>
           <a href="#process">Process</a>
           <a href="#why">Why Us</a>
+          <a href="#coverage">Ohio Coverage</a>
           <a href="#faq">FAQ</a>
           <a href="#contact">Request Pickup</a>
         </div>
 
         <div class="controls">
-          <button class="pill" id="ambientBtn" title="Toggle sparkles / ambient glow">✨</button>
+          <button class="pill" id="ambientBtn" title="Ambient glow">✨ Ambient</button>
 
           <select id="accent">
             <option value="#7c3aed">Accent: Purple</option>
             <option value="#2563eb">Accent: Blue</option>
+            <option value="#22c55e">Accent: Green</option>
             <option value="#f97316">Accent: Orange</option>
-            <option value="#10b981">Accent: Emerald</option>
             <option value="#ef4444">Accent: Red</option>
+            <option value="#06b6d4">Accent: Cyan</option>
+            <option value="#e11d48">Accent: Rose</option>
+            <option value="#a855f7">Accent: Violet</option>
+            <option value="#f59e0b">Accent: Gold</option>
+            <option value="#14b8a6">Accent: Teal</option>
+            <option value="#84cc16">Accent: Lime</option>
           </select>
 
           <button class="btn" id="themeBtn" title="Toggle light/dark">🌙</button>
@@ -603,10 +555,10 @@
     </div>
   </div>
 
-  <!-- HERO -->
   <div id="top" class="hero">
     <div class="wrap">
       <div class="hero-grid">
+
         <div class="panel hero-main">
           <div class="kicker">
             <span class="dot" aria-hidden="true"></span>
@@ -615,13 +567,20 @@
             <span><b style="color:var(--text);">Same-day pickup available</b> (when schedule allows)</span>
           </div>
 
-          <h1>Secure Data Destruction + Refurbishment that keeps good tech out of landfills.</h1>
+          <h1>Secure Data Sanitization + Refurbishment that keeps good tech out of landfills.</h1>
 
           <p>
-            <b>Amelia Tech & Auto LLC</b> (DBA <b>Amelia Asset Recovery</b>) provides <b>NAID-certified</b>
-            IT Asset Disposition (ITAD) services across Ohio. We focus on what scrappers ignore:
-            <b>chain-of-custody, verified data wiping, reuse/refurbishment, and responsible recycling.</b>
+            <b>Amelia Tech & Auto LLC</b> (DBA <b>Amelia Asset Recovery</b>) provides secure IT Asset Disposition (ITAD)
+            across Ohio. Data sanitization is aligned with <b>NIST SP 800-88</b>, with chain-of-custody practices and
+            documentation available upon request.
           </p>
+
+          <div class="pillrow">
+            <span class="tag">✅ <b>NIST 800-88 aligned</b> wiping</span>
+            <span class="tag">🧾 <b>Manifests</b> available</span>
+            <span class="tag">🛠️ <b>Refurbish-first</b> mission</span>
+            <span class="tag">♻️ <b>Responsible recycling</b></span>
+          </div>
 
           <div class="hero-cta">
             <a class="btn primary" href="#contact">Request a Free Pickup</a>
@@ -632,8 +591,6 @@
             </div>
           </div>
 
-          <div style="height:14px"></div>
-
           <div class="grid-3">
             <div class="stat">
               <b><span class="count" data-count="100">0</span>%</b>
@@ -643,44 +600,43 @@
             <div class="stat">
               <b>Every Device</b>
               <small>Logged + tracked</small>
-              <div class="mini">Serials recorded, manifests available for businesses.</div>
+              <div class="mini">Serials recorded; manifests available for organizations.</div>
             </div>
             <div class="stat">
-              <b>NAID-Certified</b>
-              <small>Secure handling</small>
-              <div class="mini">Verified wiping or physical destruction, based on your needs.</div>
+              <b>NIST 800-88 Aligned</b>
+              <small>Secure data handling</small>
+              <div class="mini">Verified wiping or physical destruction with documented results.</div>
             </div>
           </div>
         </div>
 
-        <div class="panel hero-side">
-          <div class="collage" aria-label="Photo gallery of devices we process">
+        <div class="panel">
+          <div class="collage">
             <div class="shot">
-              <img alt="Desktop computers and hardware" src="https://source.unsplash.com/800x600/?desktop,computer,hardware" loading="lazy">
+              <img src="./assets/desktops.jpg" alt="Desktops" loading="lazy">
               <div class="cap">Desktops</div>
             </div>
             <div class="shot">
-              <img alt="NVMe SSD storage" src="https://source.unsplash.com/800x600/?nvme,ssd,storage" loading="lazy">
+              <img src="./assets/nvme.jpg" alt="NVMe" loading="lazy">
               <div class="cap">NVMe</div>
             </div>
             <div class="shot">
-              <img alt="SATA SSD drive" src="https://source.unsplash.com/800x600/?ssd,drive" loading="lazy">
+              <img src="./assets/ssd.jpg" alt="SSD" loading="lazy">
               <div class="cap">SSD</div>
             </div>
             <div class="shot">
-              <img alt="Hard disk drives" src="https://source.unsplash.com/800x600/?hard-drive,hdd,storage" loading="lazy">
+              <img src="./assets/hdd.jpg" alt="HDD" loading="lazy">
               <div class="cap">HDD</div>
             </div>
           </div>
 
           <div style="padding: 0 16px 16px;">
-            <div class="card" style="margin: 0;">
-              <div class="icon">🧍‍♂️</div>
-              <h3>One-Man Operation (for now)</h3>
+            <div class="card" style="margin:0;">
+              <div class="icon">🏢</div>
+              <h3>Leadership</h3>
               <p>
-                <b>Founder & CEO: Jaevon Bell.</b> I’m hands-on with intake, logging, wiping, refurbishment,
-                and drop-off to recycling partners. As volume grows, we’re expanding processes and building
-                a dedicated secure handling workspace.
+                <b>Founder & CEO: Jaevon Bell.</b> Amelia Asset Recovery is built to deliver secure handling,
+                clear documentation, and a refurbish-first mindset across Ohio.
               </p>
               <p style="margin-top:10px; color:var(--muted); font-weight:650;">
                 Accepted: desktops, laptops, servers, storage (HDD/SSD/NVMe), monitors, cables & peripherals.
@@ -694,113 +650,52 @@
     </div>
   </div>
 
-  <!-- SERVICES -->
   <section id="services">
     <div class="wrap">
       <div class="section-title">
         <div>
           <h2>Services (6 Core Options)</h2>
-          <p>Pick what you need — from free pickup to verified data destruction and compliance-ready documentation.</p>
+          <p>Free pickup statewide, secure handling, verified data sanitization, and reuse-first refurbishment.</p>
         </div>
       </div>
 
       <div class="services">
-        <div class="card">
-          <div class="icon">🚚</div>
-          <h3>Free Pickup Anywhere in Ohio</h3>
-          <p>Based in Elyria, serving statewide. Same-day pickup available when schedule allows. No pickup fees.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🧾</div>
-          <h3>Asset Logging & Manifests</h3>
-          <p>Every device is recorded (serials + asset IDs). Businesses can request pickup manifests for records.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🧼</div>
-          <h3>Verified Data Wiping</h3>
-          <p>Secure erasure with verification logs. HDD / SSD / NVMe handled with appropriate methods.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🧨</div>
-          <h3>Physical Drive Destruction</h3>
-          <p>When policies require it, drives can be physically destroyed. Documentation available upon request.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🛠️</div>
-          <h3>Refurbish & Redeploy</h3>
-          <p>My favorite part: getting good desktops back into homes, labs, and small businesses instead of scrapping.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">♻️</div>
-          <h3>Responsible Recycling</h3>
-          <p>Non-usable components are routed through responsible downstream partners to reduce landfill waste.</p>
-        </div>
+        <div class="card"><div class="icon">🚚</div><h3>Free Pickup Anywhere in Ohio</h3><p>Based in Elyria, serving statewide. Same-day pickup available when schedule allows.</p></div>
+        <div class="card"><div class="icon">🧾</div><h3>Asset Logging & Manifests</h3><p>Devices can be recorded (serials + IDs). Manifests available upon request for audits and inventory control.</p></div>
+        <div class="card"><div class="icon">🧼</div><h3>Verified Data Wiping</h3><p>Data sanitization aligned with NIST SP 800-88. Verification logs available upon request.</p></div>
+        <div class="card"><div class="icon">🧨</div><h3>Physical Drive Destruction</h3><p>When required by policy, drives can be physically destroyed. Documentation available upon request.</p></div>
+        <div class="card"><div class="icon">🛠️</div><h3>Refurbish & Redeploy</h3><p>We prioritize reuse whenever possible to keep working equipment out of landfills.</p></div>
+        <div class="card"><div class="icon">♻️</div><h3>Responsible Recycling</h3><p>Non-usable components are routed through responsible downstream partners to reduce environmental impact.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
   <section id="process">
     <div class="wrap">
       <div class="section-title">
         <div>
           <h2>How the Process Works</h2>
-          <p>Clear steps. Clear accountability. Your data risk goes down, and reuse goes up.</p>
+          <p>Clear steps, clear accountability, and documented results when you need them.</p>
         </div>
       </div>
 
       <div class="steps">
-        <div class="step">
-          <div class="num"><i>1</i> Request Pickup</div>
-          <h4>Tell me what you have</h4>
-          <p>Desktops, laptops, servers, storage, monitors, cables, peripherals. No printers.</p>
-        </div>
-
-        <div class="step">
-          <div class="num"><i>2</i> Schedule (Same-Day possible)</div>
-          <h4>Fast scheduling across Ohio</h4>
-          <p>Same-day pickup when schedule allows; otherwise the next available slot.</p>
-        </div>
-
-        <div class="step">
-          <div class="num"><i>3</i> Intake & Logging</div>
-          <h4>Chain-of-custody starts</h4>
-          <p>Serials recorded, quantities verified, and a manifest can be produced for business clients.</p>
-        </div>
-
-        <div class="step">
-          <div class="num"><i>4</i> Data Wipe or Destruction</div>
-          <h4>Secure handling</h4>
-          <p>Erasure with verification logs, or physical destruction if required by policy.</p>
-        </div>
-
-        <div class="step">
-          <div class="num"><i>5</i> Refurbish for Reuse</div>
-          <h4>Keep good tech alive</h4>
-          <p>Usable desktops get cleaned, tested, and prepped for a second life whenever possible.</p>
-        </div>
-
-        <div class="step">
-          <div class="num"><i>6</i> Documentation</div>
-          <h4>Proof for audits</h4>
-          <p>Pickup logs, manifests, and destruction/wipe documentation available upon request.</p>
-        </div>
+        <div class="step"><div class="num"><i>1</i> Request Pickup</div><h4>Tell us what you have</h4><p>Desktops, laptops, servers, storage, monitors, cables, peripherals. No printers.</p></div>
+        <div class="step"><div class="num"><i>2</i> Schedule</div><h4>Same-day when available</h4><p>We schedule the earliest slot possible based on location and volume.</p></div>
+        <div class="step"><div class="num"><i>3</i> Intake & Logging</div><h4>Chain-of-custody begins</h4><p>Devices verified at intake. Manifests available upon request.</p></div>
+        <div class="step"><div class="num"><i>4</i> Wipe / Destroy</div><h4>Secure data sanitization</h4><p>Wiping aligned with NIST SP 800-88 or physical destruction when required.</p></div>
+        <div class="step"><div class="num"><i>5</i> Refurbish First</div><h4>Keep good tech alive</h4><p>Usable devices are tested, cleaned, and prepared for redeployment.</p></div>
+        <div class="step"><div class="num"><i>6</i> Documentation</div><h4>Proof for audits</h4><p>Manifests + wipe/destruction documentation available upon request.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- WHY US -->
   <section id="why">
     <div class="wrap">
       <div class="section-title">
         <div>
           <h2>Why Choose Us Over Scrappers?</h2>
-          <p>Scrappers chase weight. ITAD protects data, accountability, and reuse value.</p>
+          <p>Scrappers chase weight. ITAD is about data protection, accountability, and reuse value.</p>
         </div>
       </div>
 
@@ -808,65 +703,128 @@
         <div class="box">
           <h3>Typical “Scrapper” Outcome</h3>
           <ul class="list">
-            <li>Devices are valued by weight, not reuse potential.</li>
+            <li>Devices valued by weight, not reuse potential.</li>
             <li>Little/no chain-of-custody or accountability.</li>
-            <li>Data handling is often unclear (big risk for businesses).</li>
-            <li>Refurbishment is rare — good tech still gets trashed.</li>
+            <li>Unclear data handling (high risk for organizations).</li>
+            <li>Refurbishment is rare — usable tech still gets trashed.</li>
           </ul>
         </div>
 
         <div class="box">
           <h3>Amelia Asset Recovery Outcome</h3>
           <ul class="list">
-            <li><b>Asset logging & tracking</b> so devices don’t “disappear.”</li>
-            <li><b>Verified wiping</b> or destruction for secure disposition.</li>
-            <li><b>Refurbish-first mindset</b> to keep working desktops out of landfills.</li>
-            <li><b>Ohio-wide free pickup</b> with same-day availability when possible.</li>
+            <li><b>Asset logging & tracking</b> so devices are accounted for.</li>
+            <li><b>NIST 800-88 aligned wiping</b> with verification available upon request.</li>
+            <li><b>Refurbish-first</b> mindset to keep tech out of landfills.</li>
+            <li><b>Free Ohio pickup</b> with same-day availability when possible.</li>
           </ul>
         </div>
       </div>
 
       <div style="height:14px"></div>
 
-      <div class="card">
-        <div class="icon">🌱</div>
-        <h3>Mission: Save Usable Tech</h3>
-        <p>
-          I hate seeing good equipment thrown away just because it’s “outdated.”
-          If it can safely be wiped and it still works, there’s a home for it —
-          families, students, labs, and small businesses that can use it right now.
-        </p>
+      <div class="services">
+        <div class="card">
+          <div class="icon">🌱</div>
+          <h3>Mission: Save Usable Tech</h3>
+          <p>We hate seeing good equipment thrown away just because it’s “outdated.” If it can be securely sanitized and still works, there’s a home for it.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧠</div>
+          <h3>Training & Best Practices</h3>
+          <p>Founder is <b>NAID-trained</b>. Operational claims are kept honest: we follow documented procedures aligned with <b>NIST SP 800-88</b> and can provide documentation upon request.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧭</div>
+          <h3>Certification Roadmap</h3>
+          <p>We’re actively expanding processes and infrastructure to support higher-tier compliance programs and enhanced secure handling capabilities as we grow.</p>
+          <div class="pillrow">
+            <span class="tag">🔒 Controlled storage</span>
+            <span class="tag">📹 Expanded monitoring</span>
+            <span class="tag">🧾 Standardized paperwork</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <section id="coverage">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Ohio Coverage</h2>
+          <p>Based in Elyria, serving businesses, schools, and individuals statewide. Same-day pickup available when schedule allows.</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card">
+          <div class="icon">📍</div>
+          <h3>Primary Service Area</h3>
+          <p>Pickup anywhere in Ohio. Typical coverage includes (but isn’t limited to):</p>
+
+          <div class="cities" style="margin-top:12px;">
+            <div class="city"><b>Cleveland</b><small>ITAD • Data wiping • Refurb</small></div>
+            <div class="city"><b>Columbus</b><small>Pickup • Asset tracking</small></div>
+            <div class="city"><b>Cincinnati</b><small>Secure sanitization</small></div>
+            <div class="city"><b>Toledo</b><small>Desktop recovery</small></div>
+            <div class="city"><b>Akron</b><small>Free pickup</small></div>
+            <div class="city"><b>Lorain</b><small>Local pickup</small></div>
+            <div class="city"><b>Dayton</b><small>ITAD services</small></div>
+            <div class="city"><b>Youngstown</b><small>Electronics recovery</small></div>
+          </div>
+
+          <p style="margin-top:14px; color:var(--muted); font-weight:650;">
+            If you’re outside these cities, you’re still covered — request pickup and we’ll coordinate.
+          </p>
+        </div>
+
+        <div class="map" aria-label="Map of Elyria, Ohio">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Elyria,+OH&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="faq">
     <div class="wrap">
       <div class="section-title">
         <div>
           <h2>FAQ</h2>
-          <p>Quick answers for businesses, schools, and individuals across Ohio.</p>
+          <p>Quick answers for organizations across Ohio.</p>
         </div>
       </div>
 
       <div class="faq">
         <details open>
           <summary>Do you pick up anywhere in Ohio? <span class="chev">▾</span></summary>
-          <p>Yes — statewide. We’re based in Elyria, OH and travel across Ohio for pickups. Same-day pickup is available when schedule allows.</p>
+          <p>Yes — statewide. Based in Elyria, OH. Same-day pickup is available when schedule allows.</p>
         </details>
+
         <details>
           <summary>Do you charge for pickup? <span class="chev">▾</span></summary>
-          <p>No. Pickup is free. If a special case requires paid disposal (rare), we’ll tell you up front before scheduling.</p>
+          <p>No. Pickup is free.</p>
         </details>
+
         <details>
           <summary>What do you accept? <span class="chev">▾</span></summary>
-          <p>Desktops, laptops, servers, HDD/SSD/NVMe storage, monitors, cables, and peripherals. <b>Not accepting printers</b> at this time.</p>
+          <p>Desktops, laptops, servers, HDD/SSD/NVMe storage, monitors, cables, and peripherals. <b>No printers</b> at this time.</p>
         </details>
+
         <details>
-          <summary>How do you protect data? <span class="chev">▾</span></summary>
-          <p>Devices are logged and processed with verified wiping or physical destruction based on your needs. Documentation can be provided upon request.</p>
+          <summary>How do you wipe data? <span class="chev">▾</span></summary>
+          <p>We use documented procedures aligned with <b>NIST SP 800-88</b>. Verification logs and documentation are available upon request.</p>
         </details>
+
+        <details>
+          <summary>Are you NAID certified? <span class="chev">▾</span></summary>
+          <p>
+            The business is not currently NAID AAA certified. The founder is NAID-trained, and services are delivered using documented procedures aligned with <b>NIST SP 800-88</b>.
+            Verification logs and chain-of-custody documentation are available upon request.
+          </p>
+        </details>
+
         <details>
           <summary>Can businesses get documentation for audits? <span class="chev">▾</span></summary>
           <p>Yes — pickup manifests, logs, and wipe/destruction documentation are available upon request.</p>
@@ -875,13 +833,12 @@
     </div>
   </section>
 
-  <!-- CONTACT + MAP -->
   <section id="contact">
     <div class="wrap">
       <div class="section-title">
         <div>
           <h2>Request a Free Pickup</h2>
-          <p>Fill this out and I’ll reply to schedule pickup. (No phone required — add later if you want.)</p>
+          <p>No mailto. This form submits to a real backend (Formspree). Replace the action URL once you create your form.</p>
         </div>
       </div>
 
@@ -892,10 +849,6 @@
             <span>Ohio-wide • Elyria-based • Same-day when possible</span>
           </div>
 
-          <!-- REAL FORM BACKEND (no mailto):
-               1) Create a free Formspree form
-               2) Replace ACTION URL below with your Formspree endpoint (looks like https://formspree.io/f/xxxxabcd)
-          -->
           <form id="pickupForm" action="https://formspree.io/f/REPLACE_ME" method="POST">
             <label for="name">Name</label>
             <input id="name" name="name" required placeholder="Your name" />
@@ -913,38 +866,28 @@
             <textarea id="devices" name="devices" required placeholder="Example: 12 desktops, 8 monitors, box of HDDs/SSDs"></textarea>
 
             <label for="timeframe">Pickup timeframe</label>
-            <input id="timeframe" name="timeframe" placeholder="Same-day if possible / this week / next week" />
+            <select class="formsel" id="timeframe" name="timeframe" required>
+              <option value="Same-day (if available)">Same-day (if available)</option>
+              <option value="Within 24–48 hours">Within 24–48 hours</option>
+              <option value="This week">This week</option>
+              <option value="Next week">Next week</option>
+            </select>
 
             <input type="hidden" name="_subject" value="New Pickup Request - Amelia Asset Recovery" />
             <button class="btn primary" style="width:100%; margin-top:12px;" type="submit">Send Pickup Request</button>
 
-            <div class="hint">
-              <b>Email:</b> <span id="emailText">jaevonb19@gmail.com</span>
-              • If the form isn’t configured yet, it won’t submit — see the Formspree step below.
-            </div>
+            <div class="hint">Email: <b id="emailText">jaevonb19@gmail.com</b></div>
           </form>
+
+          <div class="hint" style="margin-top:12px;">
+            Tip: For a stronger “enterprise” look later, we can switch this to a free serverless backend (Cloudflare Pages Functions / Netlify) so you fully control the inbox + spam filtering.
+          </div>
         </div>
 
-        <div class="map" aria-label="Map of Ohio with Elyria highlighted">
-          <!-- Simple embed that always works (no API key needed) -->
-          <iframe
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Elyria,+OH&output=embed">
-          </iframe>
+        <div class="map" aria-label="Map of Elyria, Ohio">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Elyria,+OH&output=embed"></iframe>
         </div>
-      </div>
-
-      <div style="height:14px"></div>
-
-      <div class="card">
-        <div class="icon">📍</div>
-        <h3>Serving Ohio Businesses (SEO Keywords)</h3>
-        <p>
-          Searching for: <b>ITAD Ohio</b>, <b>data destruction Ohio</b>, <b>e-waste pickup Ohio</b>,
-          <b>computer recycling Elyria</b>, <b>hard drive destruction</b>, <b>secure data wiping</b>.
-          That’s exactly what we do — with a refurbish-first mindset.
-        </p>
       </div>
     </div>
   </section>
@@ -953,8 +896,8 @@
     <div class="wrap">
       <div class="foot">
         <div class="fine">
-          <b style="color:var(--text);">© <span id="year"></span> Amelia Tech & Auto LLC</b> — Doing Business As <b style="color:var(--text);">Amelia Asset Recovery</b><br/>
-          NAID-Certified IT Asset Disposition • Free Ohio pickup • Secure wiping / destruction • Documentation available upon request
+          <b style="color:var(--text);">© <span id="year"></span> Amelia Tech & Auto LLC</b> — DBA <b style="color:var(--text);">Amelia Asset Recovery</b><br/>
+          Secure IT Asset Disposition • NIST SP 800-88 aligned wiping • Free Ohio pickup • Documentation available upon request
         </div>
         <div class="fine" style="text-align:right;">
           Contact: <b style="color:var(--text);">jaevonb19@gmail.com</b><br/>
@@ -967,7 +910,6 @@
   <div class="toast" id="toast">Copied!</div>
 
   <script>
-    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Theme toggle
@@ -987,7 +929,7 @@
       toast("Accent updated");
     });
 
-    // Ambient sparkles toggle (fixed selector in CSS)
+    // Ambient toggle
     const ambientBtn = document.getElementById("ambientBtn");
     ambientBtn.addEventListener("click", () => {
       document.body.dataset.ambient = (document.body.dataset.ambient === "on" ? "off" : "on");
@@ -995,8 +937,7 @@
     });
 
     // Copy email
-    const copyEmailBtn = document.getElementById("copyEmailBtn");
-    copyEmailBtn.addEventListener("click", async () => {
+    document.getElementById("copyEmailBtn").addEventListener("click", async () => {
       try{
         await navigator.clipboard.writeText("jaevonb19@gmail.com");
         toast("Email copied");
@@ -1005,7 +946,7 @@
       }
     });
 
-    // Animated counters
+    // Counter animation
     const counters = document.querySelectorAll(".count");
     const animateCounters = () => {
       counters.forEach(el => {
@@ -1019,14 +960,8 @@
         }, 16);
       });
     };
-
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if(e.isIntersecting){
-          animateCounters();
-          io.disconnect();
-        }
-      });
+      entries.forEach(e => { if(e.isIntersecting){ animateCounters(); io.disconnect(); } });
     }, { threshold: 0.25 });
     const hero = document.querySelector(".hero");
     if(hero) io.observe(hero);
@@ -1041,7 +976,7 @@
       toastTimer = setTimeout(() => toastEl.classList.remove("show"), 1300);
     }
 
-    // Formspree guard: prevent "REPLACE_ME" submits
+    // Prevent submit until Formspree is configured
     document.getElementById("pickupForm").addEventListener("submit", (e) => {
       const action = e.target.getAttribute("action") || "";
       if(action.includes("REPLACE_ME")){
@@ -1049,6 +984,11 @@
         toast("Set your Formspree URL first");
         alert("Form backend not configured yet.\n\n1) Create a Formspree form\n2) Replace the action URL in index.html\n\nThen commit + push again.");
       }
+    });
+
+    // If any image fails, hide it (prevents alt-text showing in the box)
+    document.querySelectorAll(".shot img").forEach(img => {
+      img.addEventListener("error", () => { img.style.display = "none"; });
     });
   </script>
 </body>
