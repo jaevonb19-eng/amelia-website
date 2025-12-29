@@ -1,145 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Amelia Tech & Auto LLC | Secure IT Asset Reuse</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f9fafb;
-      color: #1f2937;
-      line-height: 1.6;
-    }
-    header {
-      background: white;
-      padding: 60px 20px;
-      text-align: center;
-      border-bottom: 1px solid #e5e7eb;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: auto;
-      color: #4b5563;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    footer {
-      background: #111827;
-      color: #d1d5db;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-    .cta {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #2563eb;
-      color: white;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amelia Asset Recovery</title>
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; color:#333; background:#f9f9f9;}
+  header { background:#0077cc; color:white; padding:40px 20px; text-align:center;}
+  header h1 { margin:0; font-size:2.5em;}
+  header p { margin-top:10px; font-size:1.2em;}
+  header a { display:inline-block; margin-top:20px; background:#fff; color:#0077cc; padding:12px 25px; text-decoration:none; font-weight:bold; border-radius:5px;}
+  section { padding:60px 20px; max-width:1100px; margin:0 auto;}
+  h2 { color:#0077cc; margin-bottom:20px;}
+  .services, .how-it-works, .faq { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;}
+  .service, .step, .faq-item { background:white; padding:20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+  form input, form textarea, form select { width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:5px;}
+  form input[type="submit"] { background:#0077cc; color:white; border:none; cursor:pointer; font-weight:bold;}
+  form input[type="submit"]:hover { background:#005fa3;}
+  footer { background:#333; color:white; text-align:center; padding:20px;}
+  .stats { display:flex; justify-content:space-around; margin-top:30px; flex-wrap:wrap;}
+  .stat { background:#fff; padding:20px; border-radius:8px; margin:10px; flex:1 1 150px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+</style>
 </head>
 <body>
 
+<!-- Hero Section -->
 <header>
-  <h1>Secure Data Destruction & Computer Reuse</h1>
-  <p>
-    A service of <strong>Amelia Tech & Auto LLC</strong><br>
-    We help small businesses safely decommission retired desktops through
-    documented data wiping and responsible reuse.
-  </p>
-  <a class="cta" href="#contact">Request Pickup</a>
+  <h1>Amelia Asset Recovery</h1>
+  <p>Amelia Tech & Auto LLC, operating as Amelia Asset Recovery, collects desktops, laptops, and electronics from businesses, schools, and individuals. Every device is logged, securely wiped or destroyed, and responsibly recycled.</p>
+  <a href="#contact">Request a Free Pickup</a>
+  <div class="stats">
+    <div class="stat"><strong>0%</strong><br>E-Waste to Landfill</div>
+    <div class="stat"><strong>Every Device</strong><br>Logged & Tracked</div>
+    <div class="stat"><strong>ITAD Compliant</strong><br>Data Wipe & Security</div>
+  </div>
 </header>
 
-<section>
-  <h2>Services</h2>
+<!-- About Section -->
+<section id="about">
+  <h2>About Us</h2>
+  <p>At Amelia Tech & Auto LLC, doing business as Amelia Asset Recovery, our mission is to help businesses, schools, and individuals securely dispose of old electronics while protecting sensitive data and supporting environmental sustainability. We follow best practices in IT asset management and ITAD standards to ensure complete accountability for every device collected.</p>
+  <p>Our trained staff handle pickups, logging, data wiping, and recycling. Every device is traceable in our secure inventory system, and documentation can be provided for compliance and auditing purposes. We are committed to maximizing reuse of electronics and minimizing e-waste.</p>
+</section>
+
+<!-- Services Section -->
+<section id="services">
+  <h2>Our Services</h2>
   <div class="services">
-    <div class="card">
-      <h3>Secure Drive Sanitization</h3>
-      <p>Drives are wiped using industry-standard methods appropriate for HDDs and SSDs, with verification and logging.</p>
+    <div class="service">
+      <h3>Free Pickup & Evaluation</h3>
+      <p>We collect desktops, laptops, servers, monitors, printers, and peripherals from businesses, schools, and individuals at no cost. Devices are evaluated on-site or at our facility to determine if they can be reused, refurbished, or recycled.</p>
     </div>
-    <div class="card">
-      <h3>Asset Inventory & Tracking</h3>
-      <p>Each system is logged with serial numbers and a unique internal asset ID. A manifest is created for your records.</p>
+    <div class="service">
+      <h3>Logged & Tracked Devices</h3>
+      <p>Every device or storage medium is meticulously logged into our secure inventory system. This ensures full traceability from pickup to final processing, giving clients peace of mind that all equipment is accounted for.</p>
     </div>
-    <div class="card">
-      <h3>No-Cost Pickup</h3>
-      <p>We offer no-cost pickup of eligible decommissioned desktop computers for small businesses and offices.</p>
+    <div class="service">
+      <h3>ITAD Data Wipe & Security</h3>
+      <p>We provide certified IT Asset Disposition (ITAD) data wiping services. Hard drives are securely erased using recognized methods (DoD 5220.22-M, NIST 800-88) or physically destroyed if requested. Documentation is available for every device, ensuring sensitive data is completely unrecoverable.</p>
     </div>
-    <div class="card">
-      <h3>Certificates of Data Destruction</h3>
-      <p>After sanitization, documentation is provided showing the data destruction process performed.</p>
+    <div class="service">
+      <h3>Responsible Recycling</h3>
+      <p>Devices that cannot be reused or refurbished are recycled through certified e-waste partners. We follow a zero-landfill policy to ensure harmful materials are safely disposed of, reducing environmental impact.</p>
     </div>
-    <div class="card">
-      <h3>Responsible Reuse & Recycling</h3>
-      <p>Usable systems are refurbished for continued use. Non-usable components are recycled responsibly.</p>
+    <div class="service">
+      <h3>Business Documentation</h3>
+      <p>We provide detailed manifests, pickup logs, and data wipe certificates for businesses, schools, and organizations to support IT compliance, auditing, and reporting requirements.</p>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>Our Process</h2>
-  <ol>
-    <li>Equipment intake and inventory</li>
-    <li>Drive sanitization using documented methods</li>
-    <li>Verification and logging</li>
-    <li>Certificate and asset manifest generation</li>
-    <li>Reuse or responsible recycling</li>
-  </ol>
+<!-- How It Works Section -->
+<section id="how-it-works">
+  <h2>How It Works</h2>
+  <div class="how-it-works">
+    <div class="step">
+      <h3>1. Request Pickup</h3>
+      <p>Fill out our form or email us with device details and your location.</p>
+    </div>
+    <div class="step">
+      <h3>2. Schedule Collection</h3>
+      <p>We coordinate a convenient pickup date and time that fits your schedule.</p>
+    </div>
+    <div class="step">
+      <h3>3. Device Logging</h3>
+      <p>Each device is logged into our secure inventory system for accountability and traceability.</p>
+    </div>
+    <div class="step">
+      <h3>4. Data Wipe & ITAD</h3>
+      <p>Drives are securely wiped or destroyed according to recognized ITAD standards, ensuring sensitive data is fully protected.</p>
+    </div>
+    <div class="step">
+      <h3>5. Refurbishment / Recycling</h3>
+      <p>Usable devices are refurbished for reuse. Devices that cannot be reused are recycled responsibly through certified partners.</p>
+    </div>
+    <div class="step">
+      <h3>6. Documentation</h3>
+      <p>Businesses and organizations receive pickup manifests and data wipe certificates for compliance and auditing purposes.</p>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>About</h2>
-  <p>
-    Amelia Tech & Auto LLC is a locally operated business focused on secure handling
-    and responsible reuse of retired technology. Our goal is to help small businesses
-    eliminate data risk while keeping usable equipment out of landfills.
-  </p>
+<!-- FAQ Section -->
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <h3>Do you accept all devices?</h3>
+      <p>Yes — desktops, laptops, monitors, servers, printers, and peripherals are all accepted.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How fast is the pickup?</h3>
+      <p>Typically within 1–5 business days, depending on volume and location.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can you handle sensitive company data?</h3>
+      <p>Absolutely. All drives are securely wiped or destroyed using certified ITAD methods, ensuring data is unrecoverable.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you provide documentation?</h3>
+      <p>Yes — detailed pickup manifests, device logs, and data wipe certificates are available for businesses and organizations.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you charge for pickups?</h3>
+      <p>No — pickups and evaluations are completely free.</p>
+    </div>
+  </div>
 </section>
 
+<!-- Contact Section -->
 <section id="contact">
-  <h2>Contact</h2>
-  <p>
-    Email: <strong>info@yourdomain.com</strong><br>
-    Local pickup available by appointment.
-  </p>
+  <h2>Request a Free Pickup</h2>
+  <form action="mailto:jaevonb19@gmail.com" method="post" enctype="text/plain">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="company">Company/School (optional):</label><br>
+    <input type="text" id="company" name="company"><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="phone">Phone (optional):</label><br>
+    <input type="tel" id="phone" name="phone"><br>
+
+    <label for="devices">Device Details (types, quantity):</label><br>
+    <textarea id="devices" name="devices" rows="4" required></textarea><br><br>
+
+    <label for="date">Preferred Pickup Date (optional):</label><br>
+    <input type="date" id="date" name="date"><br><br>
+
+    <input type="submit" value="Request Pickup">
+  </form>
 </section>
 
+<!-- Footer -->
 <footer>
-  <p>
-    © Amelia Tech & Auto LLC<br>
-    Data destruction methods are documented but not NAID certified at this time.
-  </p>
+  <p>© 2025 Amelia Tech & Auto LLC | Doing Business as Amelia Asset Recovery</p>
+  <p>Email: jaevonb19@gmail.com</p>
 </footer>
 
 </body>
